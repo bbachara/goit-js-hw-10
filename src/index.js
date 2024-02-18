@@ -1,5 +1,7 @@
 import { fetchBreeds, fetchCatByBreed } from './cat-api';
 import Notiflix from 'notiflix';
+import SlimSelect from 'slim-select';
+import 'slim-select/dist/slimselect.css';
 
 const breedSelect = document.querySelector('.breed-select');
 const catInfo = document.querySelector('.cat-info');
@@ -22,12 +24,10 @@ try {
 
 function renderSelect(breeds) {
   showError(false);
-  const markup = breeds
-    .map(({ id, name }) => {
-      return `<option value="${id}">${name}</option>`;
-    })
-    .join('');
-  breedSelect.insertAdjacentHTML('beforeend', markup);
+  new SlimSelect({
+    select: '.breed-select',
+    data: breeds.map(({ id, name }) => ({ text: name, value: id })),
+  });
   loader.classList.add('hidden');
 }
 
@@ -64,11 +64,11 @@ function renderCat(catData) {
   const { description, name, temperament } = catData.breeds[0];
   catInfo.insertAdjacentHTML(
     'beforeend',
-    `<div>
+    `<div class="cat-card">
         <h2>${name}</h2>
-        <img src="${url}" alt="${name}" />
-        <p>${description}</p>
-        <p><strong>Temperament:</strong> ${temperament}</p>
+        <img class="cat-image" src="${url}" alt="${name}" />
+        <p class="text-description">${description}</p>
+        <p class="text-temperament"><strong>Temperament:</strong> ${temperament}</p>
     </div>`
   );
 }
