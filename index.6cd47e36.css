@@ -1,2 +1,0 @@
-.cat-info img{max-width:700px;max-height:700px;width:auto;height:auto}.breed-select{margin:0 auto;display:flex}.cat-info{text-align:center;margin:0 auto;display:flex}.loader{width:48px;height:48px;box-sizing:border-box;border:5px solid #fff;border-bottom-color:#ff3d00;border-radius:50%;animation:rotation 1s linear infinite;display:inline-block}@keyframes rotation{0%{transform:rotate(0deg)}to{transform:rotate(360deg)}}.loader.hidden,.error.hidden{display:none}
-/*# sourceMappingURL=index.6cd47e36.css.map */
